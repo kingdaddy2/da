@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/style.css">
+<script src="/fontawsome.js"></script>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description"
+    content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+<title>Rhyno | Home</title>
+
+<!-- using online links -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+
+
+<link rel="stylesheet" href="/scrollbar.css">
+<body>
+
+  <div class="page-wrapper chiller-theme toggled">
+    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
+      <i class="fas fa-bars"></i>
+    </a>
+    <nav id="sidebar" class="sidebar-wrapper">
+      <div class="sidebar-content">
+        <div class="sidebar-content">
+          <div class="sidebar-brand">
+            <a >Rhyno Bot</a>
+            <div id="close-sidebar">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+      
+        <% if(user) {%> 
+          <div class="sidebar-header">
+            <div class="user-pic">
+              <img class="img-responsive" src="<%= user.displayAvatarURL %>" alt="User picture">
+            </div>
+            <div class="user-info">
+              <span class="user-name"><%=user.username %>
+                <strong>#<%=user.discriminator %></strong>
+                <% if(isUserPremium) {%>
+                  <i style="color: gold;" class="fad fa-diamond"></i>
+                  <%}%>
+                  <% if(isUserMod) { %>
+                    <i style="color: cyan;" class="fad fa-gavel"></i>
+                    <%}%>
+              </span>
+            <p style="font-size: 10pxpx;">This Is My Bio</p>
+
+            </div>
+          </div>
+        
+        <%} %>
+       
+        <!-- sidebar-header  -->
+    
+        <!-- sidebar-search  -->
+        <div class="sidebar-menu">
+          <ul>
+            <li class="header-menu">
+              <span>General</span>
+            </li>
+            <li class="sidebar">
+              <a href="/manage-server">
+                <i class="fa fa-tachometer-alt"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-dropdown">
+              <a href="#">
+                <i class="fad fa-medal"></i>
+                <span>Top Users</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a href="/top/xp">Top Xp
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/top/coin">Top Coins</a>
+                  </li>
+                
+                </ul>
+              </div>
+            </li>
+           
+            <li class="sidebar-dropdown">
+              <a href="#">
+                <i class="fad fa-gem"></i> 
+                <span>Premium</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a href="/premium/user">User Premium
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/premium/server">Server Premium</a>
+                  </li>
+                
+                </ul>
+              </div>
+            </li>
+   
+            <li class="sidebar-dropdown">
+              <a href="#">
+                <i class="fad fa-robot"></i> 
+                <span>Commands</span>
+              </a>
+              <div class="sidebar-submenu">
+                <ul>
+                  <li>
+                    <a href="/commands/public">Public
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/commands/moderation">Moderation</a>
+                  </li>
+                  <li>
+                    <a href="/commands/economy">Economy</a>
+                  </li>
+                  <li>
+                    <a href="/commands/giveaway">Giveaway</a>
+                  </li>
+                  <li>
+                    <a href="/commands/top">Top</a>
+                  </li>
+                  <li>
+                    <a href="/commands/music">Music</a>
+                  </li>
+                 
+                
+                </ul>
+              </div>
+            </li>
+            <li class="header-menu">
+              <span>Others</span>
+            </li>
+        <% if(user) {%> 
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fad fa-user"></i>
+              <span>Profile</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="/manage-profile">Manage Profile 
+                  </a>
+                </li>
+                <li>
+                  <a href="/logout">Logout</a>
+                </li>
+              
+              </ul>
+            </div>
+          </li>
+        <%} else {%>
+          <li>
+            <a href="/login">
+              <i class="fad fa-sign-in-alt"></i>
+              <span>Login</span>
+            </a>
+          </li>
+          <%}%>
+          <% if(user) {%> 
+            <li>
+              <a href="#">
+                <i class="fad fa-credit-card-front"></i>
+                <span>Manage Premium</span>
+              </a>
+            </li>
+            <%}%>
+           
+          
+          </ul>
+        </div>
+        <!-- sidebar-menu  -->
+      </div>
+      <!-- sidebar-content  -->
+    </nav>
+    <!-- sidebar-wrapper  -->
+    <style type="text/css"> 
+body {
+  background-color:#3a3f48;
+}
+   </style>
+
+<main class="page-content">
+<div class="container">
+    <div class="gallery-grid">
+    <% guilds.forEach((g) => {%>
+            <a href="/manage-server/<%=g.id%>">
+            <figure class="gallery-frame">
+              <img class="gallery-img" src="https://cdn.discordapp.com/icons/<%=g.id%>/<%=g.icon%>.jpg" alt="symbol image" title="symbol image">
+            </figure>
+        </a>
+    <%})%>
+
+      </div><!-- end:gallery-grid -->
+
+
+</div>
+
+    
+</main>
+  <!-- page-wrapper -->
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+</script>
+<script src="malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    $("#close-sidebar").click(function() {
+    $(".page-wrapper").removeClass("toggled");
+  });
+  $("#show-sidebar").click(function() {
+    $(".page-wrapper").addClass("toggled");
+  });
+
+  $(".sidebar-dropdown > a").click(function() {
+  $(".sidebar-submenu").slideUp(200);
+  if (
+    $(this)
+      .parent()
+      .hasClass("active")
+  ) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .parent()
+      .removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this)
+      .next(".sidebar-submenu")
+      .slideDown(200);
+    $(this)
+      .parent()
+      .addClass("active");
+  }
+});
+
+</script>
+</html>
